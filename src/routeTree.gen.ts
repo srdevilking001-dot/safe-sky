@@ -13,7 +13,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as AppIndexRouteImport } from './routes/app/index'
+import { Route as AppAiRouteImport } from './routes/app/ai'
+import { Route as AppHistoryRouteImport } from './routes/app/history'
 import { Route as AppMapRouteImport } from './routes/app/map'
+import { Route as AppProfileRouteImport } from './routes/app/profile'
+import { Route as AppSettingsRouteImport } from './routes/app/settings'
 import { Route as AppSosRouteImport } from './routes/app/sos'
 
 const IndexRoute = IndexRouteImport.update({
@@ -36,9 +40,29 @@ const AppIndexRoute = AppIndexRouteImport.update({
   path: '/app/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppAiRoute = AppAiRouteImport.update({
+  id: '/app/ai',
+  path: '/app/ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppHistoryRoute = AppHistoryRouteImport.update({
+  id: '/app/history',
+  path: '/app/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppMapRoute = AppMapRouteImport.update({
   id: '/app/map',
   path: '/app/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/app/profile',
+  path: '/app/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/app/settings',
+  path: '/app/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppSosRoute = AppSosRouteImport.update({
@@ -51,7 +75,11 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/app/ai': typeof AppAiRoute
+  '/app/history': typeof AppHistoryRoute
   '/app/map': typeof AppMapRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/settings': typeof AppSettingsRoute
   '/app/sos': typeof AppSosRoute
   '/app/': typeof AppIndexRoute
 }
@@ -59,7 +87,11 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/app/ai': typeof AppAiRoute
+  '/app/history': typeof AppHistoryRoute
   '/app/map': typeof AppMapRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/settings': typeof AppSettingsRoute
   '/app/sos': typeof AppSosRoute
   '/app': typeof AppIndexRoute
 }
@@ -68,21 +100,49 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/app/ai': typeof AppAiRoute
+  '/app/history': typeof AppHistoryRoute
   '/app/map': typeof AppMapRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/settings': typeof AppSettingsRoute
   '/app/sos': typeof AppSosRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/register' | '/app/map' | '/app/sos' | '/app/'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/app/ai'
+    | '/app/history'
+    | '/app/map'
+    | '/app/profile'
+    | '/app/settings'
+    | '/app/sos'
+    | '/app/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/register' | '/app/map' | '/app/sos' | '/app'
+  to:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/app/ai'
+    | '/app/history'
+    | '/app/map'
+    | '/app/profile'
+    | '/app/settings'
+    | '/app/sos'
+    | '/app'
   id:
     | '__root__'
     | '/'
     | '/login'
     | '/register'
+    | '/app/ai'
+    | '/app/history'
     | '/app/map'
+    | '/app/profile'
+    | '/app/settings'
     | '/app/sos'
     | '/app/'
   fileRoutesById: FileRoutesById
@@ -91,7 +151,11 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LoginRoute: typeof LoginRoute
   RegisterRoute: typeof RegisterRoute
+  AppAiRoute: typeof AppAiRoute
+  AppHistoryRoute: typeof AppHistoryRoute
   AppMapRoute: typeof AppMapRoute
+  AppProfileRoute: typeof AppProfileRoute
+  AppSettingsRoute: typeof AppSettingsRoute
   AppSosRoute: typeof AppSosRoute
   AppIndexRoute: typeof AppIndexRoute
 }
@@ -126,11 +190,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/ai': {
+      id: '/app/ai'
+      path: '/app/ai'
+      fullPath: '/app/ai'
+      preLoaderRoute: typeof AppAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/history': {
+      id: '/app/history'
+      path: '/app/history'
+      fullPath: '/app/history'
+      preLoaderRoute: typeof AppHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/app/map': {
       id: '/app/map'
       path: '/app/map'
       fullPath: '/app/map'
       preLoaderRoute: typeof AppMapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/app/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/app/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/app/sos': {
@@ -147,20 +239,14 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LoginRoute: LoginRoute,
   RegisterRoute: RegisterRoute,
+  AppAiRoute: AppAiRoute,
+  AppHistoryRoute: AppHistoryRoute,
   AppMapRoute: AppMapRoute,
+  AppProfileRoute: AppProfileRoute,
+  AppSettingsRoute: AppSettingsRoute,
   AppSosRoute: AppSosRoute,
   AppIndexRoute: AppIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
