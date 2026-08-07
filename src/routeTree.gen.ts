@@ -20,6 +20,11 @@ import { Route as AppProfileRouteImport } from './routes/app/profile'
 import { Route as AppSettingsRouteImport } from './routes/app/settings'
 import { Route as AppSosRouteImport } from './routes/app/sos'
 import { Route as HeadIndexRouteImport } from './routes/head/index'
+import { Route as HeadCameraRouteImport } from './routes/head/camera'
+import { Route as HeadDroneRouteImport } from './routes/head/drone'
+import { Route as HeadHistoryRouteImport } from './routes/head/history'
+import { Route as HeadMapRouteImport } from './routes/head/map'
+import { Route as HeadSettingsRouteImport } from './routes/head/settings'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -76,6 +81,31 @@ const HeadIndexRoute = HeadIndexRouteImport.update({
   path: '/head/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HeadCameraRoute = HeadCameraRouteImport.update({
+  id: '/head/camera',
+  path: '/head/camera',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeadDroneRoute = HeadDroneRouteImport.update({
+  id: '/head/drone',
+  path: '/head/drone',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeadHistoryRoute = HeadHistoryRouteImport.update({
+  id: '/head/history',
+  path: '/head/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeadMapRoute = HeadMapRouteImport.update({
+  id: '/head/map',
+  path: '/head/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeadSettingsRoute = HeadSettingsRouteImport.update({
+  id: '/head/settings',
+  path: '/head/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -87,6 +117,11 @@ export interface FileRoutesByFullPath {
   '/app/profile': typeof AppProfileRoute
   '/app/settings': typeof AppSettingsRoute
   '/app/sos': typeof AppSosRoute
+  '/head/camera': typeof HeadCameraRoute
+  '/head/drone': typeof HeadDroneRoute
+  '/head/history': typeof HeadHistoryRoute
+  '/head/map': typeof HeadMapRoute
+  '/head/settings': typeof HeadSettingsRoute
   '/app/': typeof AppIndexRoute
   '/head/': typeof HeadIndexRoute
 }
@@ -100,6 +135,11 @@ export interface FileRoutesByTo {
   '/app/profile': typeof AppProfileRoute
   '/app/settings': typeof AppSettingsRoute
   '/app/sos': typeof AppSosRoute
+  '/head/camera': typeof HeadCameraRoute
+  '/head/drone': typeof HeadDroneRoute
+  '/head/history': typeof HeadHistoryRoute
+  '/head/map': typeof HeadMapRoute
+  '/head/settings': typeof HeadSettingsRoute
   '/app': typeof AppIndexRoute
   '/head': typeof HeadIndexRoute
 }
@@ -114,6 +154,11 @@ export interface FileRoutesById {
   '/app/profile': typeof AppProfileRoute
   '/app/settings': typeof AppSettingsRoute
   '/app/sos': typeof AppSosRoute
+  '/head/camera': typeof HeadCameraRoute
+  '/head/drone': typeof HeadDroneRoute
+  '/head/history': typeof HeadHistoryRoute
+  '/head/map': typeof HeadMapRoute
+  '/head/settings': typeof HeadSettingsRoute
   '/app/': typeof AppIndexRoute
   '/head/': typeof HeadIndexRoute
 }
@@ -129,6 +174,11 @@ export interface FileRouteTypes {
     | '/app/profile'
     | '/app/settings'
     | '/app/sos'
+    | '/head/camera'
+    | '/head/drone'
+    | '/head/history'
+    | '/head/map'
+    | '/head/settings'
     | '/app/'
     | '/head/'
   fileRoutesByTo: FileRoutesByTo
@@ -142,6 +192,11 @@ export interface FileRouteTypes {
     | '/app/profile'
     | '/app/settings'
     | '/app/sos'
+    | '/head/camera'
+    | '/head/drone'
+    | '/head/history'
+    | '/head/map'
+    | '/head/settings'
     | '/app'
     | '/head'
   id:
@@ -155,6 +210,11 @@ export interface FileRouteTypes {
     | '/app/profile'
     | '/app/settings'
     | '/app/sos'
+    | '/head/camera'
+    | '/head/drone'
+    | '/head/history'
+    | '/head/map'
+    | '/head/settings'
     | '/app/'
     | '/head/'
   fileRoutesById: FileRoutesById
@@ -169,6 +229,11 @@ export interface RootRouteChildren {
   AppProfileRoute: typeof AppProfileRoute
   AppSettingsRoute: typeof AppSettingsRoute
   AppSosRoute: typeof AppSosRoute
+  HeadCameraRoute: typeof HeadCameraRoute
+  HeadDroneRoute: typeof HeadDroneRoute
+  HeadHistoryRoute: typeof HeadHistoryRoute
+  HeadMapRoute: typeof HeadMapRoute
+  HeadSettingsRoute: typeof HeadSettingsRoute
   AppIndexRoute: typeof AppIndexRoute
   HeadIndexRoute: typeof HeadIndexRoute
 }
@@ -252,6 +317,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HeadIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/head/camera': {
+      id: '/head/camera'
+      path: '/head/camera'
+      fullPath: '/head/camera'
+      preLoaderRoute: typeof HeadCameraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/head/drone': {
+      id: '/head/drone'
+      path: '/head/drone'
+      fullPath: '/head/drone'
+      preLoaderRoute: typeof HeadDroneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/head/history': {
+      id: '/head/history'
+      path: '/head/history'
+      fullPath: '/head/history'
+      preLoaderRoute: typeof HeadHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/head/map': {
+      id: '/head/map'
+      path: '/head/map'
+      fullPath: '/head/map'
+      preLoaderRoute: typeof HeadMapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/head/settings': {
+      id: '/head/settings'
+      path: '/head/settings'
+      fullPath: '/head/settings'
+      preLoaderRoute: typeof HeadSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -265,6 +365,11 @@ const rootRouteChildren: RootRouteChildren = {
   AppProfileRoute: AppProfileRoute,
   AppSettingsRoute: AppSettingsRoute,
   AppSosRoute: AppSosRoute,
+  HeadCameraRoute: HeadCameraRoute,
+  HeadDroneRoute: HeadDroneRoute,
+  HeadHistoryRoute: HeadHistoryRoute,
+  HeadMapRoute: HeadMapRoute,
+  HeadSettingsRoute: HeadSettingsRoute,
   AppIndexRoute: AppIndexRoute,
   HeadIndexRoute: HeadIndexRoute,
 }
