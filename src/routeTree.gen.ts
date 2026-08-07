@@ -10,33 +10,232 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as AppIndexRouteImport } from './routes/app/index'
+import { Route as AppAiRouteImport } from './routes/app/ai'
+import { Route as AppHistoryRouteImport } from './routes/app/history'
+import { Route as AppMapRouteImport } from './routes/app/map'
+import { Route as AppProfileRouteImport } from './routes/app/profile'
+import { Route as AppSettingsRouteImport } from './routes/app/settings'
+import { Route as AppSosRouteImport } from './routes/app/sos'
+import { Route as HeadIndexRouteImport } from './routes/head/index'
+import { Route as HeadCameraRouteImport } from './routes/head/camera'
+import { Route as HeadDroneRouteImport } from './routes/head/drone'
+import { Route as HeadHistoryRouteImport } from './routes/head/history'
+import { Route as HeadMapRouteImport } from './routes/head/map'
+import { Route as HeadSettingsRouteImport } from './routes/head/settings'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/app/',
+  path: '/app/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppAiRoute = AppAiRouteImport.update({
+  id: '/app/ai',
+  path: '/app/ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppHistoryRoute = AppHistoryRouteImport.update({
+  id: '/app/history',
+  path: '/app/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppMapRoute = AppMapRouteImport.update({
+  id: '/app/map',
+  path: '/app/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/app/profile',
+  path: '/app/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/app/settings',
+  path: '/app/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppSosRoute = AppSosRouteImport.update({
+  id: '/app/sos',
+  path: '/app/sos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeadIndexRoute = HeadIndexRouteImport.update({
+  id: '/head/',
+  path: '/head/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeadCameraRoute = HeadCameraRouteImport.update({
+  id: '/head/camera',
+  path: '/head/camera',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeadDroneRoute = HeadDroneRouteImport.update({
+  id: '/head/drone',
+  path: '/head/drone',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeadHistoryRoute = HeadHistoryRouteImport.update({
+  id: '/head/history',
+  path: '/head/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeadMapRoute = HeadMapRouteImport.update({
+  id: '/head/map',
+  path: '/head/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeadSettingsRoute = HeadSettingsRouteImport.update({
+  id: '/head/settings',
+  path: '/head/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/app/ai': typeof AppAiRoute
+  '/app/history': typeof AppHistoryRoute
+  '/app/map': typeof AppMapRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/sos': typeof AppSosRoute
+  '/head/camera': typeof HeadCameraRoute
+  '/head/drone': typeof HeadDroneRoute
+  '/head/history': typeof HeadHistoryRoute
+  '/head/map': typeof HeadMapRoute
+  '/head/settings': typeof HeadSettingsRoute
+  '/app/': typeof AppIndexRoute
+  '/head/': typeof HeadIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/app/ai': typeof AppAiRoute
+  '/app/history': typeof AppHistoryRoute
+  '/app/map': typeof AppMapRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/sos': typeof AppSosRoute
+  '/head/camera': typeof HeadCameraRoute
+  '/head/drone': typeof HeadDroneRoute
+  '/head/history': typeof HeadHistoryRoute
+  '/head/map': typeof HeadMapRoute
+  '/head/settings': typeof HeadSettingsRoute
+  '/app': typeof AppIndexRoute
+  '/head': typeof HeadIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/app/ai': typeof AppAiRoute
+  '/app/history': typeof AppHistoryRoute
+  '/app/map': typeof AppMapRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/sos': typeof AppSosRoute
+  '/head/camera': typeof HeadCameraRoute
+  '/head/drone': typeof HeadDroneRoute
+  '/head/history': typeof HeadHistoryRoute
+  '/head/map': typeof HeadMapRoute
+  '/head/settings': typeof HeadSettingsRoute
+  '/app/': typeof AppIndexRoute
+  '/head/': typeof HeadIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/app/ai'
+    | '/app/history'
+    | '/app/map'
+    | '/app/profile'
+    | '/app/settings'
+    | '/app/sos'
+    | '/head/camera'
+    | '/head/drone'
+    | '/head/history'
+    | '/head/map'
+    | '/head/settings'
+    | '/app/'
+    | '/head/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/app/ai'
+    | '/app/history'
+    | '/app/map'
+    | '/app/profile'
+    | '/app/settings'
+    | '/app/sos'
+    | '/head/camera'
+    | '/head/drone'
+    | '/head/history'
+    | '/head/map'
+    | '/head/settings'
+    | '/app'
+    | '/head'
+  id:
+    | '__root__'
+    | '/'
+    | '/login'
+    | '/register'
+    | '/app/ai'
+    | '/app/history'
+    | '/app/map'
+    | '/app/profile'
+    | '/app/settings'
+    | '/app/sos'
+    | '/head/camera'
+    | '/head/drone'
+    | '/head/history'
+    | '/head/map'
+    | '/head/settings'
+    | '/app/'
+    | '/head/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LoginRoute: typeof LoginRoute
+  RegisterRoute: typeof RegisterRoute
+  AppAiRoute: typeof AppAiRoute
+  AppHistoryRoute: typeof AppHistoryRoute
+  AppMapRoute: typeof AppMapRoute
+  AppProfileRoute: typeof AppProfileRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppSosRoute: typeof AppSosRoute
+  HeadCameraRoute: typeof HeadCameraRoute
+  HeadDroneRoute: typeof HeadDroneRoute
+  HeadHistoryRoute: typeof HeadHistoryRoute
+  HeadMapRoute: typeof HeadMapRoute
+  HeadSettingsRoute: typeof HeadSettingsRoute
+  AppIndexRoute: typeof AppIndexRoute
+  HeadIndexRoute: typeof HeadIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +247,132 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/': {
+      id: '/app/'
+      path: '/app'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/ai': {
+      id: '/app/ai'
+      path: '/app/ai'
+      fullPath: '/app/ai'
+      preLoaderRoute: typeof AppAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/history': {
+      id: '/app/history'
+      path: '/app/history'
+      fullPath: '/app/history'
+      preLoaderRoute: typeof AppHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/map': {
+      id: '/app/map'
+      path: '/app/map'
+      fullPath: '/app/map'
+      preLoaderRoute: typeof AppMapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/app/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/app/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/sos': {
+      id: '/app/sos'
+      path: '/app/sos'
+      fullPath: '/app/sos'
+      preLoaderRoute: typeof AppSosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/head/': {
+      id: '/head/'
+      path: '/head'
+      fullPath: '/head/'
+      preLoaderRoute: typeof HeadIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/head/camera': {
+      id: '/head/camera'
+      path: '/head/camera'
+      fullPath: '/head/camera'
+      preLoaderRoute: typeof HeadCameraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/head/drone': {
+      id: '/head/drone'
+      path: '/head/drone'
+      fullPath: '/head/drone'
+      preLoaderRoute: typeof HeadDroneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/head/history': {
+      id: '/head/history'
+      path: '/head/history'
+      fullPath: '/head/history'
+      preLoaderRoute: typeof HeadHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/head/map': {
+      id: '/head/map'
+      path: '/head/map'
+      fullPath: '/head/map'
+      preLoaderRoute: typeof HeadMapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/head/settings': {
+      id: '/head/settings'
+      path: '/head/settings'
+      fullPath: '/head/settings'
+      preLoaderRoute: typeof HeadSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LoginRoute: LoginRoute,
+  RegisterRoute: RegisterRoute,
+  AppAiRoute: AppAiRoute,
+  AppHistoryRoute: AppHistoryRoute,
+  AppMapRoute: AppMapRoute,
+  AppProfileRoute: AppProfileRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppSosRoute: AppSosRoute,
+  HeadCameraRoute: HeadCameraRoute,
+  HeadDroneRoute: HeadDroneRoute,
+  HeadHistoryRoute: HeadHistoryRoute,
+  HeadMapRoute: HeadMapRoute,
+  HeadSettingsRoute: HeadSettingsRoute,
+  AppIndexRoute: AppIndexRoute,
+  HeadIndexRoute: HeadIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
