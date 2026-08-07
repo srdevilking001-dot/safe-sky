@@ -19,6 +19,7 @@ import { Route as AppMapRouteImport } from './routes/app/map'
 import { Route as AppProfileRouteImport } from './routes/app/profile'
 import { Route as AppSettingsRouteImport } from './routes/app/settings'
 import { Route as AppSosRouteImport } from './routes/app/sos'
+import { Route as HeadIndexRouteImport } from './routes/head/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -70,6 +71,11 @@ const AppSosRoute = AppSosRouteImport.update({
   path: '/app/sos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HeadIndexRoute = HeadIndexRouteImport.update({
+  id: '/head/',
+  path: '/head/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/app/settings': typeof AppSettingsRoute
   '/app/sos': typeof AppSosRoute
   '/app/': typeof AppIndexRoute
+  '/head/': typeof HeadIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/app/settings': typeof AppSettingsRoute
   '/app/sos': typeof AppSosRoute
   '/app': typeof AppIndexRoute
+  '/head': typeof HeadIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +115,7 @@ export interface FileRoutesById {
   '/app/settings': typeof AppSettingsRoute
   '/app/sos': typeof AppSosRoute
   '/app/': typeof AppIndexRoute
+  '/head/': typeof HeadIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/app/settings'
     | '/app/sos'
     | '/app/'
+    | '/head/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
     | '/app/settings'
     | '/app/sos'
     | '/app'
+    | '/head'
   id:
     | '__root__'
     | '/'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
     | '/app/settings'
     | '/app/sos'
     | '/app/'
+    | '/head/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,6 +170,7 @@ export interface RootRouteChildren {
   AppSettingsRoute: typeof AppSettingsRoute
   AppSosRoute: typeof AppSosRoute
   AppIndexRoute: typeof AppIndexRoute
+  HeadIndexRoute: typeof HeadIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +245,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppSosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/head/': {
+      id: '/head/'
+      path: '/head'
+      fullPath: '/head/'
+      preLoaderRoute: typeof HeadIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -246,6 +266,7 @@ const rootRouteChildren: RootRouteChildren = {
   AppSettingsRoute: AppSettingsRoute,
   AppSosRoute: AppSosRoute,
   AppIndexRoute: AppIndexRoute,
+  HeadIndexRoute: HeadIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

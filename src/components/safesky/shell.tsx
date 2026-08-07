@@ -141,11 +141,11 @@ export function Panel({
   children,
   className,
 }: {
-  title?: string;
-  icon?: React.ComponentType<{ className?: string }>;
-  action?: ReactNode;
+  title?: string | undefined;
+  icon?: React.ComponentType<{ className?: string }> | undefined;
+  action?: ReactNode | undefined;
   children: ReactNode;
-  className?: string;
+  className?: string | undefined;
 }) {
   return (
     <section className={cn("glass rounded-2xl p-4", className)}>
