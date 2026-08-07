@@ -122,8 +122,13 @@ export function useSafesky() {
   return { ...state, update: setState } as SafeskyState & { update: typeof setState };
 }
 
-export function createAlert(partial: Partial<Alert> = {}) {
+export type AlertInput = { [K in keyof Alert]?: Alert[K] | undefined };
+
+export function createAlert(partial: AlertInput = {}) {
   const s = getState();
+  const clean = Object.fromEntries(
+    Object.entries(partial).filter(([, v]) => v !== undefined),
+  ) as Partial<Alert>;
   const alert: Alert = {
     id: `A-${Date.now().toString(36).toUpperCase()}`,
     user: s.profile.name,
@@ -136,7 +141,7 @@ export function createAlert(partial: Partial<Alert> = {}) {
     status: "active",
     channels: { police: true, ambulance: true, family: true, head: true },
     media: [],
-    ...partial,
+    ...clean,
   };
   setState((prev) => ({ alerts: [alert, ...prev.alerts].slice(0, 50) }));
   return alert;
