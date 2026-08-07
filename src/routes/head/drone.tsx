@@ -15,7 +15,7 @@ export const Route = createFileRoute("/head/drone")({
       { property: "og:description", content: "Live drone telemetry for emergency response." },
     ],
   }),
-  component: DroneDashboard;
+  component: DroneDashboard,
 });
 
 function DroneDashboard() {
